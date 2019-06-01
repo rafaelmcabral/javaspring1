@@ -56,7 +56,6 @@ public class TaskDao {
 		}
 	}
 
-
 	private Task populaTask(ResultSet rs) throws SQLException {
 		Task task = new Task();
 		//popula o objeto task

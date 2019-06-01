@@ -2,9 +2,12 @@ package tasks.model;
 
 import java.util.Calendar;
 
+import javax.validation.constraints.Size;
+
 public class Task {
 	
 	private Long id;
+	@Size(min=3,message="Descrição deve ter, no mínimo, 3 caracteres")
 	private String descricao;
 	private boolean finalizada;
 	private Calendar dataFinalizacao;
