@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link type="text/css" href="resources/css/tasks.css" rel="stylesheet" />
 <title>Task cadastrada</title>
 </head>
 <body>

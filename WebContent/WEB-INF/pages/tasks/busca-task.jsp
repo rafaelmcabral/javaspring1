@@ -7,6 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link type="text/css" href="resources/css/tasks.css" rel="stylesheet" />
 <title>Cadastra task</title>
 <script type="text/javascript">
 function habilitaDataFinalizacao(radio) {

@@ -22,4 +22,7 @@
   	<servlet-name>springsenac</servlet-name>
   	<url-pattern>/</url-pattern>
   </servlet-mapping>
+  <session-config>
+  	<session-timeout>3</session-timeout>
+  </session-config>
 </web-app>

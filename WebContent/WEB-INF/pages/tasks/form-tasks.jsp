@@ -7,6 +7,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Cadastra task</title>
+<link type="text/css" href="resources/css/tasks.css" rel="stylesheet" />
 </head>
 <body>
 	<h2>Formulário de cadastro das <i>tasks</i></h2>
