@@ -79,9 +79,11 @@ public class TasksController {
 		return "tasks/busca-task";
 	}
 	
-	@RequestMapping("/tasks/finalizatask")
-	@ResponseBody
-	public void finalizar(Long id) {
+	@RequestMapping("finalizatask")
+	//@ResponseBody
+	public String finalizar(Long id, Model model) {
 		dao.finaliza(id);
+		model.addAttribute("task", dao.getById(id));
+		return "tasks/data-finalizada";
 	}
 }

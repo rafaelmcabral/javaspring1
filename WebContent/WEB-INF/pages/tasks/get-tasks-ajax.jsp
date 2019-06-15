@@ -8,7 +8,7 @@
 <meta charset="ISO-8859-1">
 <title>Listagem de tasks</title>
 <link type="text/css" href="resources/css/tasks.css" rel="stylesheet" />
-<script src="../resources/js/jquery.js"></script>
+<script src="resources/js/jquery.js"></script>
 <script type="text/javascript">
 function excluir(id) {
 	if (confirm("Deseja excluir a task " + id + "?")) {
@@ -24,9 +24,10 @@ function editar(id) {
 
 function finalizarTask(id) {
  	$.post("finalizatask", {'id':id}, function(data) {
+ 		$("#task_"+id).html(data);
 		//$("#task_"+id).html("Finalizada");
-		//$("#task_"+id+"_data").html(data.dataFinalizacao);
-		location.reload(true);
+		//$("#task_"+id+"_data").html(data);
+		//location.reload(true);
 	});
 }
 
@@ -45,16 +46,16 @@ function finalizarTask(id) {
 		<th>Ação 2</th>
 	</tr>
 	<c:forEach items="${tasks}" var="task">
-	<tr>
-		<td>${task.getId()}</td>
+	<tr id="task_${task.getId()}" bgcolor="#${task.id % 2 == 0 ? 'ffffff' : 'f0f8ff' }">
+ 		<td>${task.getId()}</td>
 		<td>${task.getDescricao()}</td>
 		<c:if test="${task.isFinalizada() eq false }">
-			<td id="task_${task.getId()}"><a href="javascript:void(0)" onclick="finalizarTask(${task.getId()})">Finalizar</a></td>
+			<td><a href="javascript:void(0)" onclick="finalizarTask(${task.getId()})">Finalizar</a></td>
 		</c:if>
 		<c:if test="${task.isFinalizada() eq true }">
 			<td>Finalizada</td>
 		</c:if>
-		<td id="task_${task.getId()}_data"><fmt:formatDate value="${task.getDataFinalizacao().time}" pattern="dd/MM/yyyy" /></td>
+		<td><fmt:formatDate value="${task.getDataFinalizacao().time}" pattern="dd/MM/yyyy" /></td>
 		<td><a href="javascript:void(0)" onclick="return excluir(${task.getId()})">Excluir</a></td>
 		<td><a href="javascript:void(0)" onclick="editar(${task.getId()})">Editar</a></td>
 	</tr>
